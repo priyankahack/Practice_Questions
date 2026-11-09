@@ -1,1 +1,25 @@
+ Question - "Given two strings s and t, return true if the two strings are anagrams of each other, otherwise return false.
+
+Two strings are anagrams if they contain the same characters, with each character appearing the same number of times, regardless of order."
+
+Link - https://neetcode.io/problems/is-anagram/question
+
+Code - 
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+
+        char[] c = s.toCharArray();
+        char[] ch = t.toCharArray();
+        Arrays.sort(c);
+        Arrays.sort(ch);
+        String newS = String.valueOf(c);
+        String newT = String.valueOf(ch);
+        if(newS.equals(newT))
+         return true;
+        else
+         return false;        
+
+    }
+}
 
