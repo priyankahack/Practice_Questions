@@ -1,0 +1,38 @@
+Question - "Given an integer array nums and an integer k, return the k most frequent elements within the array.
+
+The test cases are generated such that the answer is always unique.
+
+You may return the output in any order."
+
+URL - https://neetcode.io/problems/top-k-elements-in-list/question
+
+Coding - 
+
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+
+        // for getting frequency of each number
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int num : nums)
+        {
+            map.put(num,map.getOrDefault(num,0)+1);
+        }
+
+        //Convert into list to sort it 
+        List<Integer> arr = new ArrayList<>(map.keySet());
+
+        //sort function of list
+        arr.sort((a,b) -> map.get(b) - map.get(a));
+
+        //to print the k most frequency elements 
+        int[] numz = new int[k];
+        for(int i =0 ;i < k; i++)
+        {
+            numz[i] = arr.get(i);
+        }
+
+        return numz;
+
+        
+    }
+}
